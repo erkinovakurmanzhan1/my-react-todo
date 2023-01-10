@@ -1,11 +1,11 @@
 import React from 'react';
 import MyButton from '../UI/button/MyButton';
 
-const PostItem = ({post}) => {
+const PostItem = ({post, number}) => {
     return (
         <div className='post'>
             <div className='post_content'>
-                <strong>{post.id} {post.title}</strong>
+                <strong>{number + 1} {post.title}</strong>
                 <div>{post.body}</div>
             </div>
             <div className='post_btns'>

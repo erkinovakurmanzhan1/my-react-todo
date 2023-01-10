@@ -1,19 +1,21 @@
 import { useState } from "react";
 import PostList from "./components/post-list/PostList";
-import './App.css'
+import "./App.css";
+import PostFrom from "./components/post-form/PostFrom";
 
-const DUMMY_POST = [
-  { id: 1, title: "JS", body: "Description 1" },
-  { id: 2, title: "Next.js", body: "Description 2" },
-  { id: 3, title: "React", body: "Description 3" },
-]
+const DUMMY_POST = [];
 
 function App() {
   const [posts, setPosts] = useState(DUMMY_POST);
 
+  const addPostHandler = (newPost) => {
+    setPosts([...posts, newPost]);
+  };
+
   return (
     <div className="App">
-      <PostList posts={posts}/>
+      <PostFrom onPost={addPostHandler} />
+      <PostList posts={posts} />
     </div>
   );
 }
